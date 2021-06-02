@@ -1,0 +1,33 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /community
+spring:
+  thymeleaf:
+    cache: false
+  #数据源 连接池
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/community?characterEncoding=utf-8&useSSL=false&serverTimeZone=Shanghai
+    username: root
+    password: 960915
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      max-active: 15
+      time-between-eviction-runs-millis: 60000
+#配置mybatis
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.nowcoder.community.entity
+  configuration:
+    #启用自增长主键
+    use-generated-keys: true
+    #驼峰命名和下划线命名匹配
+    map-underscore-to-camel-case: true
+#配置日志logger
+#logging:
+#  level:
+#    com.nowcoder.community: debug
+#  file:
+#    name: E:/Project/Java/SpringBoot/community/community.log
+
